@@ -8,13 +8,13 @@ html, body {
   }
 
 .fondo {
-  background-image: url(../img/weather.jpg);
-  height: 100vh;
-  margin-top: 0px;
-  padding: 0;
+  background-image: url(../img/weather2.webp);
+  /* height: 100vh; */
+  margin-top: 0%;
+  padding: -0px;
   
   background-size: cover;
-  /* background-position: center center;  */
+  background-position: center;
   /* background-repeat: repeat; */
 }
 

@@ -1,14 +1,92 @@
+Aquí está tu código con comentarios en cada línea:
+
+```html
 <!-- Extiende la plantilla "base.html" -->
 {% extends "base.html" %}
 
 <!-- Cargamos las etiquetas estáticas para acceder a archivos estáticos como CSS y JavaScript -->
 {% load static %}
 
-
-
 <!-- Inicia contenido -->
 {% block content %}
 
+<!-- Itera a través de los mensajes almacenados en "messages" y muestra alertas -->
+{% for message in messages %}
+<!-- Crea un div para cada mensaje con una clase de alerta correspondiente a las etiquetas del mensaje -->
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <!-- Muestra el contenido del mensaje -->
+    {{ message }}
+    <!-- Botón para cerrar la alerta -->
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+
+
+<!-- Crea un contenedor que ocupa el 100% de la altura de la ventana -->
+<div class="container vh-100 ">
+
+  <!-- sección de busqueda de informacion -->
+  <section class="mb-3">
+
+    <!-- Crea una fila, centra su contenido tanto horizontal como verticalmente -->
+    <div class="row  d-flex justify-content-center align-items-start mt-5 pt-5">
+
+      <!-- Crea una columna que ocupa todo el ancho disponible y centra su contenido tanto horizontal como verticalmente -->
+      <div class="col-12  d-flex justify-content-center align-items-start">
+
+        <!-- Crea un formulario con un ancho del 50% y un color de texto específico -->
+        <form method="post" class="col-6" style="color: rgb(4, 6, 0); ">
+          <!-- Añade un token CSRF para proteger contra ataques CSRF -->
+          {% csrf_token %}
+          <!-- Crea un grupo de entrada -->
+          <div class="input-group">
+            <!-- Crea un campo de entrada de texto con un placeholder "Search" -->
+            <input type="text" class="form-control form-control-lg me-2" name="city" placeholder="Search">
+            <!-- Crea un botón dentro del grupo de entrada -->
+            <div class="input-group-btn bg-white ">
+              <!-- Crea un botón con un icono de binoculares -->
+              <button class="btn btn-default" type="submit">
+                <i class="fas fa-binoculars fa-2x"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <!-- fin del formulario -->
+
+      </div>
+    </div>
+  </section>
+  <!-- fin de session de busqueda de informacion -->
+
+  <!-- empieza session que muestra la informacion buscada -->
+  <section class="">
+    <div class="row mt-5 p-1  d-flex justify-content-center">
+      
+      <div class="col-6 d-flex flex-column justify-content-center align-items-start bg-white mx-auto">
+
+        <h3 class="mb-4"><strong>Country code: </strong></h3>
+        <h5 class="mb-4"><strong>latitude and longitude: </strong>{{latitude}},  {{longitude}}</h5>
+
+        <h5 class="mb-4"><strong>Current Weather: </strong>{{weather}}</h5>
+
+        <h5 class="mb-4"><strong>temperature: </strong>{{temperature}} °C</h5>
+
+        <h5 class="mb-4"><strong>feels_like: </strong>{{feels_like}} °C</h5>
+
+        <h5 class="mb-4"><strong>wind: </strong>{{wind}} meter/second</h5>
+        <h5 class="mb-4"><strong>Cloudiness: </strong>{{Cloudiness}} %</h5>
+        <h5 class="mb-4"><strong>Pressure: </strong>{{pressure}} hpa</h5>
+        <h5><strong>Humidity: </strong>{{humidity}} %</h5>
+    
+    </div>
+    
+
+    </div>
+  </section>
+  <!-- termina session que muestra la informacion buscada -->
+</div>
 
 {% endblock %}
 <!-- Termina contenido -->
+```
