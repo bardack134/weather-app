@@ -18,7 +18,7 @@ def index(request):
 
         city=request.POST["city"]
         # Define la clave de la API.
-        apikey='99468f5d704838bdc037ae66b01460e5'#NO COLOCAR EL VALOR DE LA API DIRECTAMENTE EN EL CODIGO, SI NO COLOCAR UNA VARIABLE DE ENTORNO
+        apikey='99468f5d704838bdc037ae66b01460e5'#DO NOT PLACE THE API VALUE DIRECTLY IN THE CODE; INSTEAD, USE AN ENVIRONMENT VARIABLE
 
         # Realiza una solicitud GET a la API de OpenWeatherMap para obtener los datos del clima de la ciudad.
         response = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={apikey}&units=metric')
