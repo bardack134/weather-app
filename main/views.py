@@ -51,10 +51,10 @@ def index(request):
                 
             return render(request, 'index.html', contexto)
             
-    else:
-        messages.error(request, 'registered not found')
+        else:
+            messages.error(request, 'registered not found')
 
-        return render(request, 'index.html')
+        
             
     return render(request, 'index.html')
    
