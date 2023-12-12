@@ -36,6 +36,7 @@ def index(request):
 
             # Crea un nuevo diccionario con los datos relevantes.
             contexto= {
+                'city':city,
                 # uso de get() con un valor predeterminado 'none' es una forma segura de acceder a claves anidadas, ya que evita errores si alguna de las claves no está presente.
                 'latitude':data_diccionario.get('coord', None).get('lon'), #si la clave 'coord' no está presente en el diccionario principal, la variable asociada a 'latitude' será None.
                 'longitude':data_diccionario.get('coord', None).get('lat'),

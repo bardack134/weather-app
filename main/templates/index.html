@@ -59,13 +59,15 @@ Aquí está tu código con comentarios en cada línea:
   </section>
   <!-- fin de session de busqueda de informacion -->
 
+  {% comment %} voy a verificar si se ha realizado una busqueda, comprobando si city es verdadero {% endcomment %}
+  {% if city %}
   <!-- empieza session que muestra la informacion buscada -->
   <section class="">
     <div class="row mt-5 p-1  d-flex justify-content-center">
       
-      <div class="col-6 d-flex flex-column justify-content-center align-items-start bg-white mx-auto">
+      <div class="col-12 col-md-10 col-lg-6 d-flex flex-column justify-content-center align-items-start bg-white mx-auto">
 
-        <h3 class="mb-4"><strong>Country code: </strong></h3>
+        <h3 class="mb-4"><strong>City: </strong>{{city}}</h3>
         <h5 class="mb-4"><strong>latitude and longitude: </strong>{{latitude}},  {{longitude}}</h5>
 
         <h5 class="mb-4"><strong>Current Weather: </strong>{{weather}}</h5>
@@ -85,6 +87,7 @@ Aquí está tu código con comentarios en cada línea:
     </div>
   </section>
   <!-- termina session que muestra la informacion buscada -->
+  {% endif %}
 </div>
 
 {% endblock %}
